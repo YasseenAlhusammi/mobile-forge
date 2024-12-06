@@ -1,0 +1,27 @@
+package:
+  name: pyzbar
+  version: 0.1.8  # تأكد من استخدام الإصدار الصحيح
+
+source:
+  url: https://github.com/NaturalHistoryMuseum/pyzbar/archive/refs/tags/v0.1.8.tar.gz
+  sha256: <SHA256_HASH>  # قم بإضافة الـ SHA256 hash الصحيح للملف
+
+build:
+  number: 0
+  script: python setup.py install
+
+requirements:
+  build:
+    - python
+    - setuptools
+    - zbar  # تأكد من إضافة zbar كاعتماد
+  host:
+    - python
+    - zbar  # التأكد من توافر zbar في بيئة التشغيل
+  run:
+    - python
+    - zbar  # التأكد من توافر zbar عند التشغيل
+
+test:
+  commands:
+    - python -m unittest test.py  # تأكد من تشغيل اختبارات الوحدة
